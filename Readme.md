@@ -6,17 +6,22 @@ Este proyecto sirve como ejemplo de la creacion de dos microservicios que se com
 
 El Microservicio 1 se encuentra en la carpeta `microservicio1` y se ejecuta en el puerto 3001. Este microservicio recibe solicitudes HTTP y las procesa.
 
-El archivo principal es `servicio.js`, que inicia un servidor Express y define varias rutas.
+El archivo principal es `servicio.js`, que inicia un servidor Express y define varias rutas. Este microservicio retorna un listado de estudiantes con la siguiente información.
+
+- Nombre
+- Apellido
+- Cédula
+- Materias a las que está inscrito
 
 ## Microservicio 2
 
 El Microservicio 2 se encuentra en la carpeta `microservicio2` y se ejecuta en el puerto 3002. Este microservicio recibe solicitudes del Microservicio 1 y devuelve respuestas.
 
-Al igual que el Microservicio 1, el archivo principal es `servicio.js`.
+Al igual que el Microservicio 1, el archivo principal es `servicio.js`. En este microservicio se aloja la información de las materias (nombre, id).
 
 ## Instalación
 
-Para instalar las dependencias del proyecto, ejecuta el siguiente comando en tu terminal:
+Para instalar las dependencias del proyecto, ejecuta el siguiente comando en tu terminal en la raiz de este proyecto y en la carpeta `./cliente-microservicios`:
 
 ```bash
 npm i
@@ -24,14 +29,13 @@ npm i
 
 ## Ejecución
 
-Para iniciar los microservicios, navega a sus respectivas carpetas y ejecuta el siguiente comando en tu terminal:
+Para iniciar los microservicios, navega a sus respectivas carpetas y ejecuta el siguiente comando en tu terminal en la raíz de este proyecto:
 
 ```bash
-npm start
+npm run start
 ```
-En caso de existir errores, inicia cada microservicio en terminales separadas con el comando `node servicio.js`
 
-En el caso del Cliente es necesario utilizar ya que utiliza `vite`
+Para inicializar el cliente ejecute el siguiente comando en la carpeta `./cliente-microservicios`.
 
 ```bash
 npm run dev
