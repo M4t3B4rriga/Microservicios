@@ -1,5 +1,13 @@
 # Proyecto de Microservicios
 
+**Integrantes:** Alexander Guacán, Mateo Barriga.
+
+**Curso:** Desarrollo web avanzado
+
+**NRC:** 14956
+
+**Github:** <https://github.com/M4t3B4rriga/Microservicios.git>
+
 Este proyecto sirve como ejemplo de la creacion de dos microservicios que se comunican entre sí.
 
 ## Microservicio 1
