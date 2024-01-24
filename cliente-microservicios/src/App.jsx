@@ -21,34 +21,46 @@ function App() {
       .catch(error => console.error(error));
   }, []);
 
-  let persons = ''
-  let template = (person) => {
-    return /*html*/`
-        <section>
-          <article>
-            <header>
-              <h2>${person.firstname} ${person.lastname}</h2>
-            </header>
-          </article>
-        </section>
-      `
+  const findSubjects = (student) => {
+    let subjects = []
+
+    for (const subjectId of student.subjects) {
+      for (const subject of microservicio2Data) {
+        if (subject.id == subjectId) {
+          subjects.push(<li>{subject.name}</li>)
+        }
+      }
+    }
+
+    return subjects
   }
 
-  let array = microservicio1Data
+  let persons = []
 
-  for (let person of array) {
-    persons += template(person)
-    // console.log(person)
+  for (const student of microservicio1Data) {
+    persons.push(
+      <tr>
+        <td>{student.firstname} {student.lastname}</td>
+        <td>{student.id}</td>
+        <td><ul>{findSubjects(student)}</ul></td>
+      </tr>
+    )
   }
 
   // Renderizar la interfaz de usuario
   return (
-    <div>
-      <h1>Cliente React con Vite</h1>
-      <p>Microservicio 1:</p>
-      {persons}
-      <p>Microservicio 2: {microservicio2Data}</p>
-    </div>
+    <table>
+      <caption>Estudiantes</caption>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Cedula</th>
+          <th>Materias</th>
+        </tr>
+      </thead>
+
+      <tbody>{persons}</tbody>
+    </table>
   );
 }
 
